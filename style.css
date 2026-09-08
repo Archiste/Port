@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
-    --bg: #0b0b0d;
-    --surface: #111114;
-    --surface-hover: #17171b;
+    --bg: #0d0b0b;
+    --surface: #141111;
+    --surface-hover: #1b1717;
 
     --text: #f3f3f3;
     --muted: #929297;
 
-    --red: #36205f;
-    --red-light: #542d88;
+    --red: #5f2020;
+    --red-light: #882d2d;
 
     --border: rgba(255, 255, 255, 0.09);
-    --border-hover: rgba(67, 46, 120, 0.55);
+    --border-hover: rgba(120, 46, 46, 0.55);
 
     --radius: 16px;
     --container: 1180px;
@@ -54,7 +54,7 @@ body::before {
     background:
         linear-gradient(
             180deg,
-            rgba(134, 48, 239, 0.035),
+            rgba(56, 13, 13, 0.095),
             transparent 30%
         );
 }
@@ -105,10 +105,6 @@ a {
     color: inherit;
     text-decoration: none;
 }
-
-/* =========================================================
-   LAYOUT
-========================================================= */
 
 header,
 nav,
@@ -172,7 +168,7 @@ section:nth-child(even) {
 
     background: var(--red);
 
-    box-shadow: 0 0 12px rgba(108, 48, 239, 0.5);
+    box-shadow: 0 0 12px rgba(239, 48, 48, 0.5);
 }
 
 nav ul {
@@ -306,7 +302,7 @@ nav a.active::after {
     width: 80px;
     height: 80px;
 
-    border: 1px solid rgba(128, 48, 239, 0.4);
+    border: 1px solid rgba(239, 48, 48, 0.4);
     border-radius: 50%;
 
     opacity: 0.5;
@@ -325,10 +321,10 @@ nav a.active::after {
 
     padding: 8px;
 
-    border: 1px solid rgba(134, 48, 239, 0.45);
+    border: 1px solid rgba(239, 48, 48, 0.45);
     border-radius: 50%;
 
-    background: #101012;
+    background: #121010;
 
     box-shadow: var(--shadow);
 
@@ -356,7 +352,7 @@ nav a.active::after {
     position: absolute;
     inset: -12px;
 
-    border: 1px solid rgba(147, 48, 239, 0.18);
+    border: 1px solid rgba(239, 48, 48, 0.18);
     border-radius: 50%;
 
     pointer-events: none;
@@ -525,7 +521,7 @@ article:hover,
     background: linear-gradient(
         135deg,
         transparent 50%,
-        rgba(105, 48, 239, 0.08) 50%
+        rgba(239, 48, 48, 0.08) 50%
     );
 
     opacity: 0;
@@ -643,7 +639,7 @@ article p,
     background:
         linear-gradient(
             135deg,
-            rgba(99, 48, 239, 0.08),
+            rgba(239, 48, 48, 0.08),
             rgba(255, 255, 255, 0.015)
         );
 }
@@ -682,7 +678,7 @@ textarea:focus,
 select:focus {
     border-color: var(--red);
 
-    background: #151519;
+    background: #191515;
 }
 
 
