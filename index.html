@@ -4,91 +4,228 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfolio Archiste">
-  <title>Portfolio Archiste</title>
-  <link rel="icon" href="archiste.png" type="image/x-icon">
+  <meta property="og:title" content="ARCHISTE — Portfolio">
+  <meta property="og:description" content="Portfolio web d'Archiste : développement, design et projets créatifs.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://archiste.github.io/Port/share.gif">
+  <meta property="og:image:alt" content="Animation du portfolio Archiste">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ARCHISTE — Portfolio">
+  <meta name="twitter:description" content="Portfolio web d'Archiste : développement, design et projets créatifs.">
+  <meta name="twitter:image" content="https://archiste.github.io/Port/share.gif">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com; connect-src 'self' https://api.lanyard.rest; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self';">
+  <title>ARCHISTE — Portfolio</title>
+  <link rel="icon" href="archiste.png" type="image/png">
+  
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header>
-    <nav class="container" aria-label="Navigation principale">
-      <a class="logo" href="#accueil">Archiste</a>
-      <ul class="nav-links">
-        <li><a href="#discord">Discord</a></li>
-        <li><a href="#projets">Projets</a></li>
-        <li><a href="#a-propos">À propos</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+
+  <div class="noise"></div>
+  <div class="cursor-glow"></div>
+  <div class="welcome-screen" id="welcome-screen" aria-live="polite">
+    <div class="welcome-screen__inner">
+      <p class="eyebrow">SYSTEM ONLINE</p>
+      <h2>Welcome</h2>
+      <div class="welcome-screen__line"></div>
+      <p class="welcome-screen__text">ARCHISTE // PORTFOLIO // DEV WEB</p>
+      <div class="welcome-screen__hint">CLIQUEZ POUR ENTRER</div>
+    </div>
+  </div>
+  <div class="side-rail" aria-hidden="true">
+    <span class="side-rail__track"></span>
+    <span class="side-rail__progress"></span>
+    <span class="side-rail__dot"></span>
+  </div>
+
+  <header class="nav">
+    <a href="#home" class="logo">A<span>R</span>CHISTE</a>
+
+    <nav>
+      <a href="#about">01 — QUI JE SUIS</a>
+      <a href="#work">02 — MES PROJETS</a>
+      <a href="#contact">03 — CONTACT</a>
     </nav>
+
+    <button class="menu-toggle" aria-label="Menu">☰</button>
   </header>
 
   <main>
-    <section class="hero container" id="accueil">
-      <div>
-        <p class="eyebrow">Designer · Développeur · Créatif</p>
-        <h1>Un développeur motivé pour tout <span>challenge.</span></h1>
-        <p>Bienvenue dans mon portfolio. Je transforme des idées en interfaces modernes, utiles et mémorables.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="#projets">Découvrir mes projets ↗</a>
-          <a class="btn btn-secondary" href="#contact">Me contacter</a>
+    <section id="home" class="hero">
+      <div class="sigil sigil-main" aria-hidden="true">
+        <span class="ring ring-1"></span>
+        <span class="ring ring-2"></span>
+        <span class="ring ring-3"></span>
+        <span class="diamond"></span>
+        <span class="cross"></span>
+        <span class="eye"></span>
+        <span class="ray r1"></span><span class="ray r2"></span>
+        <span class="ray r3"></span><span class="ray r4"></span>
+        <span class="ray r5"></span><span class="ray r6"></span>
+      </div>
+
+      <div class="hero-copy">
+        <p class="eyebrow"> HTML / CSS / JS</p>
+        <h1>ARCHI<span>STE</span></h1>
+        <p class="hero-sub">
+         Mon Porfolio.
+        </p>
+        <a href="#work" class="enter">Entrer<b>↘</b></a>
+      </div>
+
+      <div class="hero-meta">
+        <span>48°51' N</span>
+        <span>02°21' E</span>
+        <span>EST. 2026</span>
+      </div>
+
+      <div class="vertical-text">Archiste</div>
+    </section>
+
+    <section id="about" class="about section">
+      <div class="section-number">01</div>
+
+      <div class="section-heading">
+        <p class="eyebrow">Qui je suis</p>
+        <h2>Un devloppeur <br><em>Web</em></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="portrait-frame">
+          <img class="portrait-image" src="archiste.png" alt="Archiste profile picture">
+          <span class="frame-corner tl"></span>
+          <span class="frame-corner tr"></span>
+          <span class="frame-corner bl"></span>
+          <span class="frame-corner br"></span>
+        </div>
+
+        <div class="about-text">
+          <p class="large">
+            Je conçois des identités visuel a des site et des applications web. Je suis passionné par le developement, le design de site et la DA de site.
+          </p>
+
+          <p>
+            j'ai commencer le developement web en debut 2026, j'ai appris le HTML, CSS et JS par moi meme.
+            Je suis actuellement en train d'apprendre le SQL pour pouvoir créer des applications web.
+          </p>
+
+          <div class="facts">
+            <div><span>BASED IN</span><strong>FRANCE</strong></div>
+            <div><span>FOCUS</span><strong>WEB DEVELOPMENT</strong></div>
+            <div><span>STATUS</span><strong>LIBRE</strong></div>
+          </div>
         </div>
       </div>
-      <figure class="profile-photo">
-        <img src="archiste.png" alt="Portrait de Archiste">
-      </figure>
     </section>
-    <section class="container" id="discord">
-    <p class="eyebrow">Discord</p>
-    <h2 class="section-title">Je suis actuellement...</h2>
 
-    <div class="discord-card">
-        <div class="discord-profile">
-            <div class="discord-avatar-wrapper">
-                <img
-                    id="discord-avatar"
-                    src=""
-                    alt="Avatar Discord"
-                >
-                <span id="discord-status-dot"></span>
-            </div>
+    <section id="work" class="work section">
+      <div class="section-number">02</div>
 
-            <div class="discord-info">
-                <h3 id="discord-name">Chargement...</h3>
-                <p id="discord-status">Connexion à Discord...</p>
-            </div>
-        </div>
-
-        <div class="discord-activity" id="discord-activity">
-            <span class="activity-label">ACTIVITÉ</span>
-            <p id="discord-activity-text">
-                Aucune activité détectée
-            </p>
-        </div>
+      <div class="section-heading">
+        <p class="eyebrow">PROJETS SELECTIONNES</p>
+        <h2>LES<br><em>ARCHIVES.</em></h2>
       </div>
-     </section>
 
-    <section class="container" id="projets">
-      <p class="eyebrow">Sélection</p>
-      <h2 class="section-title">Projets récents</h2>
-      <div class="projects">
-        <article class="card"><span class="card-number">01</span><h3>Projet Portfolio</h3><p>Un portfolio moderne et interactif.</p></article>
-        <article class="card"><span class="card-number">02</span><h3>Projet Map</h3><p>Une carte interactive pour explorer les lieux.</p></article>
-        <article class="card"><span class="card-number">03</span><h3>Maitrise du CSS et HTML 5</h3><p>Maîtrise des dernières fonctionnalités du CSS et HTML.</p></article>
+      <div class="project-list">
+
+        <article class="project" data-title="Porfolio" data-description="Mon portfolio est un site web personnel conçu pour présenter mon profil, mes compétences et mes réalisations. Il met en avant une identité visuelle sombre, élégante et immersive, avec une navigation claire et une expérience responsive pensée pour mettre en valeur mon travail." data-link="https://archiste.github.io/Port/">
+          <div class="project-index">001</div>
+          <div class="project-image image-one has-image">
+            <img src="satty-2026-09-13_14:13:34.png" alt="Project 1">
+            <div class="project-sigil">✦</div>
+          </div>
+          <div class="project-info">
+            <p>ARCHISTE/ 2026</p>
+            <h3>MON PORTFOLIO</h3>
+            <p class="project-short">Site personnel qui présente mon parcours, mes compétences et mes créations web.</p>
+            <button class="view-project">VOIR LE PROJET<span>↗</span></button>
+          </div>
+        </article>
+
+        <article class="project" data-title="LECTEUR DE MUSIQUE" data-description="Ce lecteur de musique est une interface web pensée pour une écoute fluide et agréable. Le projet met en avant une navigation simple, une hiérarchie visuelle claire et un design minimaliste qui favorise la concentration sur l'expérience audio." data-link="https://archiste.github.io/Music/">
+          <div class="project-index">002</div>
+          <div class="project-image image-two has-image">
+            <img src="satty-2026-09-13_14:19:47.png" alt="Project 2">
+            <div class="project-sigil">✦</div>
+          </div>
+          <div class="project-info">
+            <p>ARCHISTE/ 2026</p>
+            <h3>LECTEUR DE MUSIQUE</h3>
+            <p class="project-short">Interface audio minimaliste avec lecture, j'ai ajouté des fonctionnalités avec une horloge un link a mon discord et des effet de glitch.</p>
+            <button class="view-project">VOIR LE PROJET<span>↗</span></button>
+          </div>
+        </article>
+
+        <article class="project" data-title="LINK" data-description="LINK est un projet de page de raccourcis et de ressources centralisées. Il permet d'accéder rapidement à des liens importants, réseaux sociaux ou projets, avec une mise en page moderne, lisible et fonctionnelle pour un usage quotidien." data-link="https://archiste.github.io/Link/">
+          <div class="project-index">003</div>
+          <div class="project-image image-three has-image">
+            <img src="satty-2026-09-13_14:21:57.png" alt="Project 3">
+            <div class="project-sigil">✦</div>
+          </div>
+          <div class="project-info">
+            <p>ARCHISTE/ 2026</p>
+            <h3>LINK</h3>
+            <p class="project-short">Page de liens utiles et d'accès rapide.</p>
+            <button class="view-project">VOIR LE PROJET<span>↗</span></button>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <section class="container" id="a-propos">
-      <p class="eyebrow">À propos</p>
-      <h2 class="section-title">Créer avec intention.</h2>
-      <p>Je suis un développeur passionné par la création de site et passioner par le développement web et web mobile j'apprend le développement web mobile depuis deja de nombreus mois en autodidacte je suis en train de developper mes compétences.</p>
+    <section class="skills section">
+      <div class="section-number">02.5</div>
+
+      <div class="skills-inner">
+        <p class="eyebrow">DISCIPLINES</p>
+
+        <div class="skill-line"><span>HTML</span><b>90</b></div>
+        <div class="skill-line"><span>CSS</span><b>87</b></div>
+        <div class="skill-line"><span>JavaScript</span><b>82</b></div>
+        <div class="skill-line"><span>CREATIVITÉ</span><b>90</b></div>
+      </div>
+
+      <div class="huge-sigil">✧</div>
     </section>
 
-    <section class="container" id="contact">
-      <div class="contact"><p class="eyebrow">Un projet en tête ?</p><h2 class="section-title">Construisons quelque chose.</h2><a class="btn btn-primary" href="mailto:Insensible.dev@gmail.com">Écrivez-moi →</a></div>
+    <section id="contact" class="contact section">
+      <div class="contact-sigil">✧</div>
+      <p class="eyebrow">03 — CONTACT</p>
+      <h2>CONTACTER<br><em>MOI.</em></h2>
+      <div class="contact-links">
+        <a class="email" href="mailto:Insensible.dev@gmail.com">MAIL</a>
+        <a id="discord-link" class="discord-link" href="#" aria-label="Copier le pseudo Discord">DISCORD</a>
+      </div>
+      <div class="discord-panel">
+        <p id="discord-status" class="discord-status">Chargement du statut Discord…</p>
+        <p id="discord-activity" class="discord-activity">Chargement de l’activité…</p>
+      </div>
+      <p id="copy-feedback" class="copy-feedback" aria-live="polite">Pseudo copié</p>
     </section>
+
   </main>
-  <footer>© 2026 Archiste — Tous droits réservés.</footer>
-  <script src="script.js"></script>
 
+  <footer>
+    <span>© <span id="year"></span> ARCHISTE</span>
+    <span>ALL RIGHTS RESERVED</span>
+    <span>MADE IN HTML CSS JS</span>
+  </footer>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-inner">
+      <button class="close" aria-label="Fermer">×</button>
+      <p class="eyebrow"></p>
+      <h2 id="modal-title"></h2>
+      <div class="modal-symbol">✦</div>
+      <p id="modal-description" class="modal-description">
+        Mon portfolio est un site web personnel qui présente mes compétences, mes réalisations et ma passion pour le développement web.
+      </p>
+      <a id="modal-link" class="modal-link" href="#" target="_blank" rel="noreferrer" hidden>Voir le site</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
