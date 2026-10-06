@@ -6,7 +6,7 @@ const modalTitle = document.querySelector("#modal-title");
 const modalDescription = document.querySelector("#modal-description");
 const modalLink = document.querySelector("#modal-link");
 const closeButton = document.querySelector(".close");
-
+ 
 const cursorGlow = document.querySelector(".cursor-glow");
 const sideRail = document.querySelector(".side-rail");
 const welcomeScreen = document.querySelector("#welcome-screen");
