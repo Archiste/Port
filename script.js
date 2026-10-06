@@ -6,7 +6,7 @@ const modalTitle = document.querySelector("#modal-title");
 const modalDescription = document.querySelector("#modal-description");
 const modalLink = document.querySelector("#modal-link");
 const closeButton = document.querySelector(".close");
- 
+
 const cursorGlow = document.querySelector(".cursor-glow");
 const sideRail = document.querySelector(".side-rail");
 const welcomeScreen = document.querySelector("#welcome-screen");
@@ -16,6 +16,9 @@ const discordActivity = document.querySelector("#discord-activity");
 const copyFeedback = document.querySelector("#copy-feedback");
 let pointerY = window.innerHeight / 2;
 let audioContext = null;
+let lastFocus = null;
+let soundOn = true;
+try { soundOn = localStorage.getItem("sound") !== "off"; } catch {}
 
 const DISCORD_ID = "659094544939352064";
 
@@ -123,28 +126,53 @@ function getAudioContext() {
 }
 
 function playHoverTone() {
-  const context = getAudioContext();
+  if (!soundOn) return;
+  const ctx = getAudioContext();
+  if (!ctx) return;
 
-  if (!context) {
-    return;
+  const t = ctx.currentTime;
+  const dur = 0.24;
+  const len = Math.floor(ctx.sampleRate * dur);
+  const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+  const d = buf.getChannelData(0);
+
+  // Bruit "bitcrushed" haché : valeur tenue, puis coupée au hasard (effet stutter)
+  let i = 0;
+  while (i < len) {
+    const step = 8 + Math.floor(Math.random() * 60);
+    const v = Math.random() * 2 - 1;
+    const gate = Math.random() > 0.35 ? 1 : 0;
+    for (let k = 0; k < step && i < len; k++, i++) d[i] = v * gate;
   }
 
-  const oscillator = context.createOscillator();
-  const gainNode = context.createGain();
+  const src = ctx.createBufferSource();
+  src.buffer = buf;
+  const filter = ctx.createBiquadFilter();
+  filter.type = "bandpass";
+  filter.Q.value = 1.2;
+  filter.frequency.setValueAtTime(600, t);
+  filter.frequency.exponentialRampToValueAtTime(5000, t + dur);
+  const gain = ctx.createGain();
+  gain.gain.setValueAtTime(0.07, t);
+  gain.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+  src.connect(filter);
+  filter.connect(gain);
+  gain.connect(ctx.destination);
+  src.start(t);
 
-  oscillator.type = "triangle";
-  oscillator.frequency.setValueAtTime(240, context.currentTime);
-  oscillator.frequency.exponentialRampToValueAtTime(520, context.currentTime + 0.12);
-
-  gainNode.gain.setValueAtTime(0.0001, context.currentTime);
-  gainNode.gain.exponentialRampToValueAtTime(0.04, context.currentTime + 0.01);
-  gainNode.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.18);
-
-  oscillator.connect(gainNode);
-  gainNode.connect(context.destination);
-
-  oscillator.start();
-  oscillator.stop(context.currentTime + 0.2);
+  // Petits "blips" carrés à hauteur aléatoire
+  const osc = ctx.createOscillator();
+  const og = ctx.createGain();
+  osc.type = "square";
+  for (let k = 0; k < 5; k++) {
+    osc.frequency.setValueAtTime(120 + Math.random() * 1700, t + k * 0.035);
+  }
+  og.gain.setValueAtTime(0.018, t);
+  og.gain.exponentialRampToValueAtTime(0.0001, t + 0.18);
+  osc.connect(og);
+  og.connect(ctx.destination);
+  osc.start(t);
+  osc.stop(t + 0.2);
 }
 
 function updateSideRail() {
@@ -168,7 +196,8 @@ window.addEventListener("resize", updateSideRail);
 updateSideRail();
 
 menuToggle.addEventListener("click", () => {
-  nav.classList.toggle("open");
+  const isOpen = nav.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
 });
 
 document.querySelectorAll(".nav a").forEach(link => {
@@ -204,7 +233,9 @@ document.querySelectorAll(".project").forEach(project => {
       modalLink.hidden = true;
     }
 
+    lastFocus = document.activeElement;
     modal.classList.add("open");
+    closeButton.focus();
     modal.setAttribute("aria-hidden", "false");
 
     document.body.style.overflow = "hidden";
@@ -224,6 +255,8 @@ function closeModal() {
   modalLink.hidden = true;
 
   document.body.style.overflow = "";
+  lastFocus?.focus();
+  lastFocus = null;
 }
 
 
@@ -234,7 +267,7 @@ modal.addEventListener("click", event => {
 
   if (event.target === modal) {
     closeModal();
-  } 
+  }
 
 });
 
@@ -363,4 +396,48 @@ document.querySelectorAll(".project-sigil").forEach(sigil => {
     sigil.style.transform = "";
   });
 
+});
+
+
+/* ---- Améliorations ---- */
+if (welcomeScreen) {
+  welcomeScreen.addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      welcomeScreen.click();
+    }
+  });
+  welcomeScreen.focus();
+}
+
+const soundToggle = document.querySelector(".sound-toggle");
+
+if (soundToggle) {
+  const renderSound = () => {
+    soundToggle.textContent = soundOn ? "SON : ON" : "SON : OFF";
+    soundToggle.setAttribute("aria-pressed", String(soundOn));
+  };
+  renderSound();
+  soundToggle.addEventListener("click", () => {
+    soundOn = !soundOn;
+    try { localStorage.setItem("sound", soundOn ? "on" : "off"); } catch {}
+    renderSound();
+    if (soundOn) playHoverTone();
+  });
+}
+
+
+setInterval(() => {
+  if (!document.hidden) updateDiscordStatus();
+}, 60000);
+
+
+document.querySelectorAll(".project").forEach(project => {
+  project.addEventListener("mouseenter", () => {
+    const title = project.querySelector("h3");
+    if (!title) return;
+    title.classList.remove("glitch-hit");
+    void title.offsetWidth;
+    title.classList.add("glitch-hit");
+  });
 });
