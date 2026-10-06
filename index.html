@@ -16,18 +16,24 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com; connect-src 'self' https://api.lanyard.rest; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self';">
   <title>ARCHISTE — Portfolio</title>
+  <meta name="theme-color" content="#050505">
+  <meta property="og:url" content="https://archiste.github.io/Port/">
+  <meta property="og:site_name" content="ARCHISTE">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="canonical" href="https://archiste.github.io/Port/">
   <link rel="icon" href="archiste.png" type="image/png">
   
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#about">Aller au contenu</a>
 
   <div class="noise"></div>
   <div class="cursor-glow"></div>
-  <div class="welcome-screen" id="welcome-screen" aria-live="polite">
+  <div class="welcome-screen" id="welcome-screen" role="button" tabindex="0" aria-label="Entrer sur le site">
     <div class="welcome-screen__inner">
       <p class="eyebrow">SYSTEM ONLINE</p>
-      <h2>Welcome</h2>
+      <p class="welcome-title">Welcome</p>
       <div class="welcome-screen__line"></div>
       <p class="welcome-screen__text">ARCHISTE // PORTFOLIO // DEV WEB</p>
       <div class="welcome-screen__hint">CLIQUEZ POUR ENTRER</div>
@@ -42,13 +48,15 @@
   <header class="nav">
     <a href="#home" class="logo">A<span>R</span>CHISTE</a>
 
-    <nav>
+    <nav id="main-nav" aria-label="Navigation principale">
       <a href="#about">01 — QUI JE SUIS</a>
       <a href="#work">02 — MES PROJETS</a>
-      <a href="#contact">03 — CONTACT</a>
+      <a href="#skills">03 — COMPÉTENCES</a>
+      <a href="#contact">04 — CONTACT</a>
     </nav>
 
-    <button class="menu-toggle" aria-label="Menu">☰</button>
+    <button class="sound-toggle" type="button" aria-pressed="true">SON : ON</button>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">☰</button>
   </header>
 
   <main>
@@ -69,7 +77,7 @@
         <p class="eyebrow"> HTML / CSS / JS</p>
         <h1>ARCHI<span>STE</span></h1>
         <p class="hero-sub">
-         Mon Porfolio.
+         Développeur web — des sites sombres, soignés et vivants.
         </p>
         <a href="#work" class="enter">Entrer<b>↘</b></a>
       </div>
@@ -88,7 +96,7 @@
 
       <div class="section-heading">
         <p class="eyebrow">Qui je suis</p>
-        <h2>Un devloppeur <br><em>Web</em></h2>
+        <h2>Développeur <br><em>Web</em></h2>
       </div>
 
       <div class="about-grid">
@@ -102,12 +110,12 @@
 
         <div class="about-text">
           <p class="large">
-            Je conçois des identités visuel à des sites et des applications web. Je suis passionné par le dévelopement, le design de site et la DA de site.
+            Je conçois des identités visuelles, des sites et des applications web. Je suis passionné par le développement, le design et la direction artistique.
           </p>
 
           <p>
-            j'ai commencer le developement web en debut 2026, j'ai appris le HTML, CSS et JS par moi meme.
-            Je suis actuellement en train d'apprendre le SQL pour pouvoir créer des applications web.
+            J'ai commencé le développement web début 2026 et appris le HTML, le CSS et le JavaScript par moi-même.
+            J'apprends actuellement le SQL pour créer de vraies applications web.
           </p>
 
           <div class="facts">
@@ -129,10 +137,10 @@
 
       <div class="project-list">
 
-        <article class="project" data-title="Porfolio" data-description="Mon portfolio est un site web personnel conçu pour présenter mon profil, mes compétences et mes réalisations. Il met en avant une identité visuelle sombre, élégante et immersive, avec une navigation claire et une expérience responsive pensée pour mettre en valeur mon travail." data-link="https://archiste.github.io/Port/">
+        <article class="project" data-title="Portfolio" data-description="Mon portfolio est un site web personnel conçu pour présenter mon profil, mes compétences et mes réalisations. Il met en avant une identité visuelle sombre, élégante et immersive, avec une navigation claire et une expérience responsive pensée pour mettre en valeur mon travail." data-link="https://archiste.github.io/Port/">
           <div class="project-index">001</div>
           <div class="project-image image-one has-image">
-            <img src="satty-2026-09-13_14:13:34.png" alt="Project 1">
+            <img src="projet-portfolio.png" alt="Capture d'écran de mon portfolio" width="594" height="430" loading="lazy">
             <div class="project-sigil">✦</div>
           </div>
           <div class="project-info">
@@ -146,13 +154,13 @@
         <article class="project" data-title="LECTEUR DE MUSIQUE" data-description="Ce lecteur de musique est une interface web pensée pour une écoute fluide et agréable. Le projet met en avant une navigation simple, une hiérarchie visuelle claire et un design minimaliste qui favorise la concentration sur l'expérience audio." data-link="https://archiste.github.io/Music/">
           <div class="project-index">002</div>
           <div class="project-image image-two has-image">
-            <img src="satty-2026-09-13_14:19:47.png" alt="Project 2">
+            <img src="projet-musique.png" alt="Capture d'écran du lecteur de musique" width="1603" height="1006" loading="lazy">
             <div class="project-sigil">✦</div>
           </div>
           <div class="project-info">
             <p>ARCHISTE/ 2026</p>
             <h3>LECTEUR DE MUSIQUE</h3>
-            <p class="project-short">Interface audio minimaliste avec lecture, j'ai ajouté des fonctionnalités avec une horloge un link a mon discord et des effet de glitch.</p>
+            <p class="project-short">Interface audio minimaliste : lecture, horloge, lien vers mon Discord et effets de glitch.</p>
             <button class="view-project">VOIR LE PROJET<span>↗</span></button>
           </div>
         </article>
@@ -160,7 +168,7 @@
         <article class="project" data-title="LINK" data-description="LINK est un projet de page de raccourcis et de ressources centralisées. Il permet d'accéder rapidement à des liens importants, réseaux sociaux ou projets, avec une mise en page moderne, lisible et fonctionnelle pour un usage quotidien." data-link="https://archiste.github.io/Link/">
           <div class="project-index">003</div>
           <div class="project-image image-three has-image">
-            <img src="satty-2026-09-13_14:21:57.png" alt="Project 3">
+            <img src="projet-link.png" alt="Capture d'écran de la page de liens" width="1173" height="1002" loading="lazy">
             <div class="project-sigil">✦</div>
           </div>
           <div class="project-info">
@@ -174,16 +182,17 @@
       </div>
     </section>
 
-    <section class="skills section">
-      <div class="section-number">02.5</div>
+    <section id="skills" class="skills section">
+      <div class="section-number">03</div>
 
       <div class="skills-inner">
         <p class="eyebrow">DISCIPLINES</p>
 
-        <div class="skill-line"><span>HTML</span><b>90</b></div>
-        <div class="skill-line"><span>CSS</span><b>87</b></div>
-        <div class="skill-line"><span>JavaScript</span><b>82</b></div>
-        <div class="skill-line"><span>CREATIVITÉ</span><b>90</b></div>
+        <div class="skill-line"><span>HTML</span><b>structure et accessibilité</b></div>
+        <div class="skill-line"><span>CSS</span><b>mise en page et animations</b></div>
+        <div class="skill-line"><span>JavaScript</span><b>interactions et API</b></div>
+        <div class="skill-line"><span>DIRECTION ARTISTIQUE</span><b>identité visuelle</b></div>
+        <div class="skill-line"><span>SQL</span><b>en apprentissage</b></div>
       </div>
 
       <div class="huge-sigil">✧</div>
@@ -191,11 +200,11 @@
 
     <section id="contact" class="contact section">
       <div class="contact-sigil">✧</div>
-      <p class="eyebrow">03 — CONTACT</p>
+      <p class="eyebrow">04 — CONTACT</p>
       <h2>CONTACTER<br><em>MOI.</em></h2>
       <div class="contact-links">
         <a class="email" href="mailto:Insensible.dev@gmail.com">MAIL</a>
-        <a id="discord-link" class="discord-link" href="#" aria-label="Copier le pseudo Discord">DISCORD</a>
+        <a id="discord-link" class="discord-link" role="button" href="#" aria-label="Copier le pseudo Discord">DISCORD</a>
       </div>
       <div class="discord-panel">
         <p id="discord-status" class="discord-status">Chargement du statut Discord…</p>
@@ -212,10 +221,10 @@
     <span>MADE IN HTML CSS JS</span>
   </footer>
 
-  <div class="modal" id="modal" aria-hidden="true">
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal-inner">
       <button class="close" aria-label="Fermer">×</button>
-      <p class="eyebrow"></p>
+      <p class="eyebrow">ARCHISTE / 2026</p>
       <h2 id="modal-title"></h2>
       <div class="modal-symbol">✦</div>
       <p id="modal-description" class="modal-description">
@@ -228,4 +237,6 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+
 
