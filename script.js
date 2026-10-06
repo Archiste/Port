@@ -234,7 +234,7 @@ modal.addEventListener("click", event => {
 
   if (event.target === modal) {
     closeModal();
-  }
+  } 
 
 });
 
