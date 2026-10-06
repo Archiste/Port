@@ -1048,8 +1048,6 @@ footer {
   transform: translateY(0);
 }
 
-
-/* ---- Améliorations : lisibilité, accessibilité, mobile ---- */
 :root { --dim: #7c7973; }
 .hero-meta, .vertical-text, footer, .facts span, .project-info p, .section-number { color: var(--dim); }
 .nav nav a { font-size: .74rem; }
@@ -1085,8 +1083,6 @@ footer {
   .reveal { opacity: 1; transform: none; }
 }
 
-
-/* ---- Direction artistique : glitch, textures, interactions ---- */
 ::selection { background: var(--red); color: #fff; }
 html { scrollbar-width: thin; scrollbar-color: #3a1318 var(--black); }
 
